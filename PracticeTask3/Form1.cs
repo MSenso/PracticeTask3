@@ -28,26 +28,23 @@ namespace PracticeTask3
             if (e.KeyCode == Keys.Enter)
             {
                 YInput.Text = YInput.Text.Replace('.', ',');
-                if (UOutput.Text == string.Empty)
+                if (double.TryParse(YInput.Text, out y) && Math.Abs(y) <= 1000000 && (Math.Abs(y) >= 0.000001 || y == 0))
                 {
-                    if (double.TryParse(YInput.Text, out y))
+                    XInput.Text = XInput.Text.Replace('.', ',');
+                    if (double.TryParse(XInput.Text, out x) && Math.Abs(x) <= 1000000 && (Math.Abs(x) >= 0.000001 || x == 0))
                     {
-                        XInput.Text = XInput.Text.Replace('.', ',');
-                        if (double.TryParse(XInput.Text, out x))
-                        {
-                            UOutput.Focus();
-                            U_Calculation();
-                        }
-                        else XInput.Focus();
+                        UOutput.Focus();
+                        U_Calculation();
                     }
-                    else MessageBox.Show("Введите вещественное число!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else XInput.Focus();
                 }
-                else
-                {
-                    UOutput.Text = string.Empty;
-                    XInput.Focus();
-                }
+                else MessageBox.Show("Введите вещественное число!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void XInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void UOutput_Click(object sender, EventArgs e)
@@ -74,26 +71,18 @@ namespace PracticeTask3
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (UOutput.Text == string.Empty)
+                XInput.Text = XInput.Text.Replace('.', ',');
+                if (double.TryParse(XInput.Text, out x) && Math.Abs(x) <= 1000000 && (Math.Abs(x) >= 0.000001 || x == 0))
                 {
-                    XInput.Text = XInput.Text.Replace('.', ',');
-                    if (double.TryParse(XInput.Text, out x))
+                    YInput.Text = YInput.Text.Replace('.', ',');
+                    if (double.TryParse(YInput.Text, out y) && Math.Abs(y) <= 1000000 && (Math.Abs(y) >= 0.000001 || y == 0))
                     {
-                        YInput.Text = YInput.Text.Replace('.', ',');
-                        if (double.TryParse(YInput.Text, out y))
-                        {
-                            UOutput.Focus();
-                            U_Calculation();
-                        }
-                        else YInput.Focus();
+                        UOutput.Focus();
+                        U_Calculation();
                     }
-                    else MessageBox.Show("Введите вещественное число!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else YInput.Focus();
                 }
-                else
-                {
-                    UOutput.Text = string.Empty;
-                    YInput.Focus();
-                }
+                else MessageBox.Show("Некорректный ввод числа!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

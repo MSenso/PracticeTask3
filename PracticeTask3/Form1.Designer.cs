@@ -83,6 +83,7 @@
             this.XInput.Size = new System.Drawing.Size(281, 36);
             this.XInput.TabIndex = 4;
             this.XInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.XInput.TextChanged += new System.EventHandler(this.XInput_TextChanged);
             this.XInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XInput_KeyDown);
             // 
             // YInput
@@ -147,6 +148,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вычисление u";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
